@@ -1,0 +1,82 @@
+/* Reseta as margens e paddings de todos os elementos e inclui bordas/paddings no cálculo da largura total */
+* {
+  box-sizing: border-box;
+}
+
+/* Estilos gerais da página */
+body {
+  margin: 0; /* Tira a margem padrão do navegador */
+  font-family: Arial, sans-serif; /* Define a fonte padrão */
+  background-color: #f4f6f8; /* Define a cor de fundo clara */
+  color: #333; /* Define a cor escura do texto */
+}
+
+/* PASSO 9 - Evite imagens estourando o layout */
+img {
+  max-width: 100%; /* A imagem nunca ultrapassa o tamanho do seu container */
+  height: auto; /* Mantém a proporção de altura da imagem automaticamente */
+}
+
+/* Estilo do cabeçalho da página */
+header {
+  background-color: #173b65; /* Cor de fundo azul escuro */
+  color: white; /* Texto em branco */
+  text-align: center; /* Centraliza o título e a descrição */
+  padding: 30px 20px; /* Espaçamento interno */
+}
+
+/* PASSO 10 - Controle a largura do conteúdo (Contêiner) */
+main {
+  width: min(
+    1100px,
+    92%
+  ); /* No máximo 1100px, mas usa 92% em telas menores para dar respiro lateral */
+  margin: 30px auto; /* Centraliza o bloco na horizontal e dá 30px de espaço acima/abaixo */
+}
+
+/* Configuração do CSS Grid para organizar os cartões no desktop */
+.recursos {
+  display: grid; /* Ativa o CSS Grid no container dos cartões */
+  grid-template-columns: repeat(3, 1fr); /* Cria 3 colunas iguais no desktop */
+  gap: 20px; /* Espaço de 20px entre cada cartão */
+}
+
+/* Estilo visual de cada cartão (card) */
+.card {
+  padding: 20px; /* Espaçamento interno do cartão */
+  border: 1px solid #d8dee8; /* Borda fina e clara */
+  border-radius: 12px; /* Cantos arredondados */
+  background-color: white; /* Fundo branco */
+}
+
+/* Estilo do título h2 dentro do cartão */
+.card h2 {
+  color: #173b65; /* Mesma cor azul do cabeçalho */
+}
+
+/* Estilo do parágrafo dentro do cartão */
+.card p {
+  line-height: 1.6; /* Melhora a leitura do texto */
+}
+
+/* PASSO 6 - Media query para Tablet (telas de até 900px) */
+@media (max-width: 900px) {
+  .recursos {
+    grid-template-columns: repeat(2, 1fr); /* Reduz para 2 colunas */
+  }
+}
+
+/* PASSO 7 - Media query para Celular (telas de até 600px) */
+@media (max-width: 600px) {
+  .recursos {
+    grid-template-columns: 1fr; /* Reduz para 1 coluna */
+  }
+
+  header {
+    padding: 18px; /* Reduz o padding do cabeçalho em telas pequenas */
+  }
+
+  .card {
+    padding: 16px; /* Reduz o padding dos cartões para economizar espaço */
+  }
+}
